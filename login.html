@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>職員ログイン | 流山市ファミリーサポートセンター</title>
+  <meta name="description" content="流山市ファミリーサポートセンター 職員ログイン（MVP）" />
+  <style>
+    :root{
+      --emerald-900:#064e3b; --emerald-800:#065f46; --emerald-700:#047857; --emerald-600:#059669;
+      --emerald-500:#10b981; --emerald-100:#d1fae5; --emerald-50:#ecfdf5;
+      --slate-900:#0f172a; --slate-700:#334155; --slate-600:#475569; --slate-500:#64748b; --slate-300:#cbd5e1; --slate-200:#e2e8f0; --slate-100:#f1f5f9;
+      --radius-xl: 1.25rem; --radius-2xl: 1.5rem; --radius-full: 999px; --shadow: 0 6px 18px rgba(0,0,0,.08);
+      --maxw: 560px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; color:var(--slate-700); background:var(--emerald-50);} 
+    a{color:inherit}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+    header{background:var(--emerald-700); color:#fff}
+    .header-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{font-weight:700; letter-spacing:.04em}
+    .iconbtn{border:0; background:transparent; color:#fff; padding:8px; border-radius:10px; cursor:pointer}
+
+    main{min-height:calc(100vh - 120px); padding:24px 0 32px}
+    .panel{background:#e5f3ed; /* 淡い水色寄り */ border-radius:22px; padding:22px 18px;}
+    .title-pill{margin:-32px auto 18px; width:max-content; background:#d9d9d9; color:#222; border-radius:18px; padding:10px 24px; font-weight:700; letter-spacing:.08em; box-shadow:0 2px 6px rgba(0,0,0,.08)}
+
+    form{display:grid; gap:12px}
+    .field{background:#e9f0f0; border-radius:16px; padding:12px 14px; border:1px solid #dfe7ea}
+    .field input{width:100%; border:none; background:transparent; outline:none; font-size:16px; color:var(--slate-700)}
+
+    .forgot{margin:6px 4px 0 auto; width:max-content; font-size:14px; color:#0d9488; text-decoration:underline; text-decoration-style:dotted}
+
+    .btn-primary{display:block; width:100%; margin-top:10px; padding:12px; border:none; border-radius:16px; background:var(--emerald-700); color:#fff; font-weight:700; cursor:pointer; box-shadow:var(--shadow)}
+    .btn-primary:hover{background:var(--emerald-800)}
+
+    .btn-secondary{display:block; width:100%; margin-top:12px; padding:11px; border-radius:16px; background:#fff; color:var(--slate-700); border:1px solid var(--slate-200); font-weight:600; cursor:pointer}
+
+    .note{margin-top:14px; font-size:12px; color:var(--slate-500); text-align:center}
+
+    footer{background:var(--emerald-900); color:#ecfdf5}
+    .footer-inner{padding:16px 0; text-align:center; font-size:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">流山市ファミリーサポートセンター</div>
+      <button class="iconbtn" aria-label="メニュー">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="panel">
+        <div class="title-pill">職員ログイン</div>
+        <form action="#" method="post" aria-lab
