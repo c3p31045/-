@@ -1,0 +1,98 @@
+import { useState } from "react";
+import { Menu, ChevronRight } from "lucide-react";
+
+/**
+ * 流山市ファミリーサポートセンター — ホーム画面（MVP）
+ * - TailwindCSS 前提
+ * - shadcn/ui なしでも動くプレーンなUI
+ * - 配色: 緑系（安心感）
+ */
+export default function FamisapoHome() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-emerald-50 text-slate-800 flex flex-col">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-emerald-700 text-white shadow">
+        <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
+          <h1 className="text-base sm:text-lg font-semibold tracking-wide">
+            流山市ファミリーサポートセンター
+          </h1>
+          <button
+            aria-label="メニュー"
+            className="p-2 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-white/70"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+        </div>
+        {/* Simple dropdown (MVP) */}
+        {open && (
+          <nav className="bg-emerald-800/95 border-t border-emerald-700">
+            <ul className="mx-auto max-w-5xl px-4 py-2 grid sm:grid-cols-3 gap-2 text-sm">
+              <li>
+                <a className="block rounded-md px-3 py-2 hover:bg-emerald-700" href="#about">ファミサポとは</a>
+              </li>
+              <li>
+                <a className="block rounded-md px-3 py-2 hover:bg-emerald-700" href="#flow">仕組みと流れ</a>
+              </li>
+              <li>
+                <a className="block rounded-md px-3 py-2 hover:bg-emerald-700" href="#contact">各種相談</a>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </header>
+
+      {/* Main */}
+      <main className="flex-1">
+        <section className="mx-auto max-w-5xl px-4">
+          {/* Hero */}
+          <div className="pt-8 sm:pt-10 text-center">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-wide mb-2">ふぁみさぽあらまし</h2>
+            <p className="mx-auto max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+              あああああああああああああああああああああああああ — <a href="#contact" className="underline decoration-dotted">各種相談はこちら</a>
+            </p>
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-6 sm:mt-8 flex justify-center">
+            <a
+              href="#register"
+              className="inline-block rounded-full bg-slate-100 shadow-sm hover:shadow px-6 sm:px-8 py-3 text-sm sm:text-base font-medium ring-1 ring-slate-200 hover:bg-white transition"
+            >
+              新規会員登録はこちら
+            </a>
+          </div>
+
+          {/* Role Buttons */}
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <a href="#staff-login" className="group rounded-2xl bg-emerald-100 shadow-md hover:shadow-lg px-6 py-5 text-center transition">
+              <div className="text-base sm:text-lg font-medium">職員ログイン</div>
+              <div className="opacity-0 group-hover:opacity-100 text-emerald-700 text-xs mt-1">管理画面へ</div>
+            </a>
+            <a href="#guardian-login" className="group rounded-2xl bg-emerald-100 shadow-md hover:shadow-lg px-6 py-5 text-center transition">
+              <div className="text-base sm:text-lg font-medium">利用会員ログイン</div>
+              <div className="opacity-0 group-hover:opacity-100 text-emerald-700 text-xs mt-1">保護者の方</div>
+            </a>
+            <a href="#supporter-login" className="group rounded-2xl bg-emerald-100 shadow-md hover:shadow-lg px-6 py-5 text-center transition">
+              <div className="text-base sm:text-lg font-medium">提供会員ログイン</div>
+              <div className="opacity-0 group-hover:opacity-100 text-emerald-700 text-xs mt-1">サポーターの方</div>
+            </a>
+          </div>
+
+          {/* Links & Notice */}
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+            <div className="space-y-4 text-sm sm:text-base">
+              <a
+                id="flow"
+                href="#flow"
+                className="group flex items-center gap-2 w-fit rounded-xl bg-white ring-1 ring-slate-200 px-4 py-3 shadow-sm hover:shadow transition"
+              >
+                <span className="underline decoration-dotted">仕組みと流れ</span>
+                <ChevronRight className="h-4 w-4 group-hover:translate-x-0.5 transition" />
+              </a>
+              <a
+                href="#city"
+                className="group flex items-center gap-2 w-fit rounded-xl bg-white ring-1 ring-slate-200 px-4 py-3 shadow-sm hover:shadow transition"
+              >
