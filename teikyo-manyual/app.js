@@ -34,8 +34,8 @@ const pages = {
 
 'lost': `
 <div class='manual-box'>
-<h2>運用ルール</h2>
-<p>ここに運用ルールを記載します。</p>
+<h2>パスワードを忘れた時</h2>
+<p>パスワード変更</p>
 </div>
 `,
 
