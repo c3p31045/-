@@ -85,12 +85,10 @@ const pages = {
 'menber': `
 <div class='manual-box'>
 <h2>会員情報の変更</h2>
-<p>提供者会員・利用会員にログインしてください</p>
-<img src="image/mypage/riyou-info/riyou-top.png" class="manual-image" />
-<img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
-<p>提供者会員・利用会員トップページからマイページを選択してください</p>
+<p>1.提供者会員・利用会員にログインしてください</p>
+<p>2.提供者会員・利用会員トップページからマイページを選択してください</p>
 <img src="image/mypage/mypage-change.png" class="manual-image" />
-<p>変更したい内容を変更してください</p>
+<p>3.変更したい内容を変更してください</p>
 <img src="image/mypage/mypage-change.png" class="manual-image" />
 </div>
 `,
