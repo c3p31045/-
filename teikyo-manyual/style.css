@@ -53,14 +53,7 @@ margin:20px 0;
 color:#555;
 font-size:20px;
 width: 200px;
-  height: 200px;
   object-fit: cover;
   overflow: hidden;
   border: 1px solid #ccc;
-}
-
-.image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* cover にすると切り取り表示 */
 }
