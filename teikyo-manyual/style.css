@@ -41,6 +41,9 @@ padding: 20px;
 background: #fff;
 border-radius: 8px;
 max-width: 900px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 .image-box{
 background:#d9ead3;
