@@ -76,7 +76,7 @@ const pages = {
 <p>2.希望日時に希望日入力してください</p>
 <img src="image/mypage/riyou-info/riyou-request.png" class="manual-image" />
 <p>3.お子様について子どもの年齢・依頼する預け方を入力してください</p>
-<img src="image/mypage/riyou-info/riyou-request2.png" class="manual-image" />
+<img src="image/mypage/riyou-info/riyou-request2.png" class="manual-image0" />
 <p>3.依頼する詳細な情報を入力してください</p>
 <img src="image/mypage/riyou-info/riyou-request3.png" class="manual-image" />
 </div>
