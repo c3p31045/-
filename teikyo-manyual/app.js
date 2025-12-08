@@ -60,7 +60,7 @@ const pages = {
 <img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
 <h2>提供会員データについて</h2>
 <p>1.トップページから提供会員データを選択</p>
-<img src="image/mypage/teikyo-info/teikyo-.png" class="manual-image" />
+<img src="image/mypage/teikyo-info/teikyo-top1.png" class="manual-image" />
 <p>2.提供会員のお子様情報などを確認できます</p>
 <img src="image/mypage/teikyo-info/teikyo-.png" class="manual-image" />
 </div>
