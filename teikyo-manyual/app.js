@@ -55,28 +55,35 @@ const pages = {
 
 'teikyo-info': `
 <div class='manual-box'>
-<h2>依頼内容の評価ポイント</h2>
-<p>ここに評価ポイントを記載します。</p>
+<h2>提供会員情報の見方</h2>
+<p>1.提供会員トップページから活動報告書を選択</p>
+<img src="image/list/report/houkoku1.png" class="manual-image" />
+<p>2.利用会員の会員名・会員番号・子ども氏名・年齢を入力してください</p>
+<img src="image/list/report/houkoku2.png" class="manual-image" />
+<p>3.援助した日時・人数・実施場所・援助時間から算出した報酬を入力してください。</p>
+<img src="image/list/report/houkoku3.png" class="manual-image" />
+<p>4.援助中に得た気づき(ヒヤリハットなど)を備考欄に記入してください。</p>
+<img src="image/list/report/houkoku4.png" class="manual-image" />
 </div>
 `,
 
 'riyou-info': `
 <div class='manual-box'>
-<h2>仮候補の決定法</h2>
+<h2>利用会員情報の見方</h2>
 <p>ここに評価ポイントを記載します。</p>
 </div>
 `,
 
 'menber': `
 <div class='manual-box'>
-<h2>仮候補の決定法</h2>
+<h2>会員情報の変更</h2>
 <p>ここに評価ポイントを記載します。</p>
 </div>
 `,
 
 'decision': `
 <div class='manual-box'>
-<h2>仮候補の決定法</h2>
+<h2>確定日の確認</h2>
 <p>ここに評価ポイントを記載します。</p>
 </div>
 `,
@@ -98,7 +105,7 @@ const pages = {
 
 'risk-report': `
 <div class='manual-box'>
-<h2>仮候補の決定法</h2>
+<h2>ヒヤリハット報告書提出方法</h2>
 <p>ここに評価ポイントを記載します。</p>
 </div>
 `,
@@ -107,14 +114,14 @@ const pages = {
 //4項目目
 'troble': `
 <div class='manual-box'>
-<h2>仮候補の決定法</h2>
+<h2>トラブル時の対処</h2>
 <p>ここに評価ポイントを記載します。</p>
 </div>
 `,
 
 'personal-info': `
 <div class='manual-box'>
-<h2>仮候補の決定法</h2>
+<h2>個人情報扱いの注意点</h2>
 <p>ここに評価ポイントを記載します。</p>
 </div>
 `,
