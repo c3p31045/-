@@ -25,9 +25,9 @@ const pages = {
 <div class='manual-box'>
 <h2>ログイン方法</h2>
 <p>1.ホーム画面から提供会員を選択します。</p>
-<img src="image/base/login/login1.png" class="manual-image" />
+<img src="image/base/login/login1.png" class="manual-image0" />
 <p>2.新規会員登録時に設定したIDとパスワードを入力してください</p>
-<img src="image/base/login/login2.png" class="manual-image" />
+<img src="image/base/login/login2.png" class="manual-image0" />
 </div>
 `,
 
