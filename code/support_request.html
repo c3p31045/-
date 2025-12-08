@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>援助依頼フォーム</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --brand:#0b6a57;
+      --brand-dark:#085343;
+      --ink:#0b1b1f;
+      --muted:#5c6b73;
+      --border:#d8e1e8;
+      --bg:#f4f7fa;
+    }
+    *{box-sizing:border-box;}
+
+    body{
+      margin:0;
+      font-family:"Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.7;
+    }
+
+    header{
+      padding:12px 16px;
+      background:var(--brand);
+      color:#fff;
+      box-shadow:0 1px 0 rgba(0,0,0,.15);
+    }
+    header .title{
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .request-page{
+      max-width:900px;
+      margin:32px auto 72px;
+      padding:0 16px;
+    }
+
+    .request-card{
+      background:#fff;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow:0 2px 10px rgba(13,34,45,.05);
+      padding:20px 20px 24px;
+    }
+
+    .request-title{
+      margin:0 0 12px;
+      font-size:20px;
+      font-weight:700;
+      border-bottom:1px solid var(--border);
+      padding-bottom:8px;
+    }
+
+    .request-subtitle{
+      margin:18px 0 8px;
+      font-size:16px;
+      border-left:4px solid var(--brand);
+      padding-left:8px;
+    }
+
+    .report-section{
+      margin-top:4px;
+      padding-top:4px;
+    }
+
+    .report-row{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:8px 16px;
+      align-items:center;
+      margin:10px 0;
+    }
+
+    .report-field{
+      font-weight:600;
+      color:#203139;
+      display:block;
+    }
+
+    .report-field.full{
+      grid-column:1 / -1;
+    }
+
+    .report-row input[type="text"],
+    .report-row input[type="email"],
+    .report-row input[type="tel"],
+    .report-row input[type="date"],
+    .report-row input[type="time"],
+    .report-row input[type="number"],
+    .report-row textarea{
+      width:100%;
+      padding:9px 11px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      transition:border-color .15s, box-shadow .15s;
+    }
+
+    .report-row textarea{
+      resize:vertical;
+      min-height:80px;
+    }
+
+    .report-row input:focus,
+    .report-row textarea:focus{
+      border-color:#99c3ff;
+      box-shadow:0 0 0 3px rgba(153,195,255,.35);
+    }
+
+    .hint{
+      font-size:12px;
+      color:var(--muted);
+      grid-column:2 / -1;
+      margin:0;
+    }
+
+    .request-actions{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:24px;
+      padding-top:16px;
+      border-top:1px solid var(--border);
+    }
+
+    .btn-submit{
+      appearance:none;
+      border:none;
+      border-radius:999px;
+      padding:10px 26px;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      cursor:pointer;
+      background:var(--brand);
+      color:#fff;
+      box-shadow:0 4px 0 var(--brand-dark);
+    }
+    .btn-submit:active{
+      transform:translateY(2px);
+      box-shadow:0 2px 0 var(--brand-dark);
+    }
+
+    .btn-back-link{
+      text-decoration:none;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .care-options label{
+      font-weight:500;
+      display:block;
+      margin-bottom:4px;
+    }
+
+    @media (max-width:720px){
+      .request-card{padding:16px 14px 20px;}
+      .report-row{grid-template-columns:1fr;}
+      .hint{grid-column:1 / -1;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="login.html" class="title">流山市ファミリーサポートセンター</a>
+</header>
+
+<main class="request-page">
+
+  <form class="request-card" action="support_request_confirm.php" method="post">
+
+    <h1 class="request-title">援助依頼（Web申請フォーム）</h1>
+
+    <!-- 希望日時 -->
+    <section class="report-section">
+      <h2 class="request-subtitle">希望日時</h2>
+
+      <div class="report-row">
+        <label class="report-field">
+          希望日
+        </label>
+        <div>
+          <input type="date" name="request_date" required>
+        </div>
+      </div>
+
+      <div class="report-row">
+        <label class="report-field">
+          開始時間
+        </label>
+        <div>
+          <input type="time" name="start_time" required>
+        </div>
+      </div>
+
+      <div class="report-row">
+        <label class="report-field">
+          終了時間
+        </label>
+        <div>
+          <input type="time" name="end_time" required>
+        </div>
+      </div>
+    </section>
+
+    <!-- お子さんについて -->
+    <section class="report-section">
+      <h2 class="request-subtitle">お子さんについて</h2>
+
+      <div class="report-row">
+        <label class="report-field">
+          子どもの年齢
+        </label>
+        <div>
+          <input type="number" name="child_age" min="0" max="12" step="1" required> 歳
+        </div>
+        <p class="hint">
+          ※生後6か月〜12歳（小学6年生）が対象です。整数で入力してください。
+        </p>
+      </div>
+
+      <div class="report-row">
+        <label class="report-field">
+          依頼する預け方
+        </label>
+        <div class="care-options">
+          <label>
+            <input type="checkbox" name="care_types[]" value="冠婚葬祭・学校行事">
+            冠婚葬祭や子どもの学校行事等の際のお預かり
+          </label>
+          <label>
+            <input type="checkbox" name="care_types[]" value="保育施設前後">
+            保育園・幼稚園・学童保育室の開始時間まで／終了時間後のお預かり
+          </label>
+          <label>
+            <input type="checkbox" name="care_types[]" value="送迎">
+            保育園・幼稚園・学童・習い事等への送迎
+          </label>
+          <label>
+            <input type="checkbox" name="care_types[]" value="買い物・外出・リフレッシュ">
+            買い物等外出や保護者のリフレッシュのためのお預かり
+          </label>
+          <label>
+            <input type="checkbox" name="care_types[]" value="その他">
+            その他
+          </label>
+          <input type="text" name="care_type_other_text" placeholder="（その他の内容があれば記入）">
+          <p class="hint">
+            ※複数選択可／新規登録の「援助できる活動内容」と対応しています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 依頼内容 -->
+    <section class="report-section">
+      <h2 class="request-subtitle">依頼する詳細な内容</h2>
+      <div class="report-row">
+        <label class="report-field full">
+          依頼内容（できるだけ詳しく）
+        </label>
+        <label class="report-field full">
+          <textarea name="detail" rows="6"
+            placeholder="例：〇月〇日〇時〜〇時まで、〇〇保育園にお迎え→自宅で18時まで預かってほしい 等"
+            required></textarea>
+        </label>
+      </div>
+    </section>
+
+    <!-- 備考 -->
+    <section class="report-section">
+      <div class="report-row">
+        <label class="report-field full">
+          備考（メモ用）
+        </label>
+        <label class="report-field full">
+          <textarea name="note" rows="3"
+            placeholder="お子さんの性格・健康状態・アレルギー、当日の注意点などがあれば記入してください。"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <!-- ボタン -->
+    <div class="request-actions">
+      <a href="user_menu.html" class="btn-back-link">← メニューに戻る</a>
+      <button type="submit" class="btn-submit">送信する</button>
+    </div>
+
+  </form>
+
+</main>
+
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('headerColor');
+  if (savedColor) {
+    const header = document.querySelector('header');
+    if (header) header.style.background = savedColor;
+  }
+});
+</script>
