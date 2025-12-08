@@ -58,15 +58,11 @@ const pages = {
 <h2>提供会員情報</h2>
 <p>提供会員トップページ</p>
 <img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
-<h2>援助依頼方法</h2>
-<p>1.提供会員トップページから援助依頼を選択</p>
-<img src="image/mypage/teikyo-info/teikyo-top1.png" class="manual-image" />
-<p>2.希望日時に希望日入力してください</p>
-<img src="image/mypage/teikyo-info/teikyo-request.png" class="manual-image" />
-<p>3.お子様について子どもの年齢・依頼する預け方を入力してください</p>
-<img src="image/mypage/teikyo-info/teikyo-request2.png" class="manual-image" />
-<p>3.依頼する詳細な情報を入力してください</p>
-<img src="image/mypage/teikyo-info/teikyo-request3.png" class="manual-image" />
+<h2>提供会員データについて</h2>
+<p>1.トップページから提供会員データを選択</p>
+<img src="image/mypage/teikyo-info/teikyo-.png" class="manual-image" />
+<p>2.提供会員のお子様情報などを確認できます</p>
+<img src="image/mypage/teikyo-info/teikyo-.png" class="manual-image" />
 </div>
 `,
 
@@ -74,11 +70,15 @@ const pages = {
 <div class='manual-box'>
 <h2>利用会員情報トップページ</h2>
 <img src="image/mypage/riyou-info/riyou-top.png" class="manual-image" />
-<h2>利用会員データについて</h2>
-<p>1.利用会員データを選択</p>
-<img src="image/mypage/riyou-info/riyou-.png" class="manual-image" />
-<p>2.利用会員のお子様情報などを確認できます</p>
-<img src="image/mypage/riyou-info/riyou-.png" class="manual-image" />
+<h2>援助依頼方法</h2>
+<p>1.トップページから援助依頼を選択</p>
+<img src="image/mypage/riyou-info/riyou-top1.png" class="manual-image" />
+<p>2.希望日時に希望日入力してください</p>
+<img src="image/mypage/riyou-info/riyou-request.png" class="manual-image" />
+<p>3.お子様について子どもの年齢・依頼する預け方を入力してください</p>
+<img src="image/mypage/riyou-info/riyou-request2.png" class="manual-image" />
+<p>3.依頼する詳細な情報を入力してください</p>
+<img src="image/mypage/riyou-info/riyou-request3.png" class="manual-image" />
 </div>
 `,
 
