@@ -55,7 +55,7 @@ const pages = {
 
 'teikyo-info': `
 <div class='manual-box'>
-<h2>提供会員情報の見方</h2>
+<h2>提供会員情報</h2>
 <p>提供会員トップページ</p>
 <img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
 <h2>援助依頼方法</h2>
@@ -72,8 +72,17 @@ const pages = {
 
 'riyou-info': `
 <div class='manual-box'>
-<h2>利用会員情報の見方</h2>
-<p>ここに評価ポイントを記載します。</p>
+<h2>利用会員情報トップページ</h2>
+<img src="image/mypage/teikyo-info/riyou-top.png" class="manual-image" />
+<h2>援助依頼方法</h2>
+<p>1.利用会員トップページから援助依頼を選択</p>
+<img src="image/mypage/teikyo-info/riyou-top1.png" class="manual-image" />
+<p>2.希望日時に希望日入力してください</p>
+<img src="image/mypage/teikyo-info/riyou-request.png" class="manual-image" />
+<p>3.お子様について子どもの年齢・依頼する預け方を入力してください</p>
+<img src="image/mypage/teikyo-info/riyou-request2.png" class="manual-image" />
+<p>3.依頼する詳細な情報を入力してください</p>
+<img src="image/mypage/teikyo-info/riyou-request3.png" class="manual-image" />
 </div>
 `,
 
