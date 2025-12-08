@@ -73,7 +73,7 @@ const pages = {
 <h2>援助依頼方法</h2>
 <p>1.トップページから援助依頼を選択</p>
 <img src="image/mypage/riyou-info/riyou-top1.png" class="manual-image" />
-<p>2.希望日時に希望日入力してください</p>
+<p>2.希望日時に入力してください</p>
 <img src="image/mypage/riyou-info/riyou-request.png" class="manual-image" />
 <p>3.お子様について子どもの年齢・依頼する預け方を入力してください</p>
 <img src="image/mypage/riyou-info/riyou-request2.png" class="manual-image0" />
