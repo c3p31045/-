@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>仮候補一覧 | マッチング管理</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      background-color: #f5f7fb;
+      color: #333;
+    }
+    header {
+      background-color: #166043;
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+    main {
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 0 16px 32px;
+    }
+    .summary {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .card-id {
+      font-size: 11px;
+      font-weight: 600;
+      color: #166043;
+    }
+    .card-meta {
+      font-size: 11px;
+      color: #666;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .card-request {
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+    .card-provider {
+      font-size: 13px;
+      color: #111827;
+    }
+    .score-line {
+      font-size: 12px;
+      color: #374151;
+    }
+    .score-bar {
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #e2e8f0;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .score-bar-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #309D62;
+      width: 0%;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: #fff;
+      margin-left: 4px;
+    }
+    .pill-high { background-color: #16a34a; }
+    .pill-mid  { background-color: #f59e0b; }
+    .pill-low  { background-color: #9ca3af; }
+
+    .card-actions {
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-primary {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: none;
+      background-color: #166043;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid #9ca3af;
+      background-color: #fff;
+      color: #4b5563;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .status {
+      font-size: 12px;
+      color: #555;
+      margin-top: 8px;
+    }
+    .error {
+      font-size: 13px;
+      color: #b91c1c;
+      white-space: pre-wrap;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>仮候補一覧</h1>
+  <div style="font-size:12px;opacity:0.9;">職員用マッチング管理</div>
+</header>
+
+<main>
+  <div class="summary" id="summary-text">読み込み中です...</div>
+  <div id="card-list" class="card-list">
+    <!-- JSでカードを追加 -->
+  </div>
+  <div id="status-text" class="status"></div>
+  <div id="error-text" class="error" style="display:none;"></div>
+</main>
+
+<script>
+(function() {
+  const cardListEl   = document.getElementById('card-list');
+  const summaryEl    = document.getElementById('summary-text');
+  const statusEl     = document.getElementById('status-text');
+  const errorEl      = document.getElementById('error-text');
+
+  function badge(prob) {
+    if (prob >= 0.8) return '<span class="pill pill-high">高</span>';
+    if (prob >= 0.4) return '<span class="pill pill-mid">中</span>';
+    return '<span class="pill pill-low">低</span>';
+  }
+
+  function render(list) {
+    cardListEl.innerHTML = '';
+    if (!list || list.length === 0) {
+      summaryEl.textContent = '現在、仮候補は登録されていません。';
+      return;
+    }
+
+    summaryEl.textContent = '仮候補 ' + list.length + ' 件';
+
+    list.forEach(item => {
+      const pPct = (Number(item.score || 0) * 100).toFixed(1);
+      const timeLabel =
+        (item.request_date || '') +
+        (item.start_time ? ' ' + item.start_time : '') +
+        (item.end_time ? '〜' + item.end_time : '');
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.tempId = item.temp_id;
+
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-id">依頼ID: ${item.request_id}</div>
+          <div class="card-meta">
+            ${timeLabel || ''}<br>
+            ${item.requester_name ? '依頼者: ' + item.requester_name : ''}
+          </div>
+        </div>
+        <div class="card-request">
+          ${item.request_text || '(依頼内容なし)'}
+        </div>
+        <div class="card-provider">
+          提供候補: <strong>${item.provider_name || ('ID:' + item.provider_id)}</strong>
+        </div>
+        <div class="score-line">
+          AI候補: ${Number(item.score || 0).toFixed(3)} ${badge(item.score)}
+          <div class="score-bar"><div class="score-bar-inner" style="width:${pPct}%;"></div></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-primary">この組み合わせを本保存する</button>
+          <button class="btn-secondary">仮候補から削除</button>
+        </div>
+      `;
+
+      const [btnConfirm, btnDelete] = card.querySelectorAll('button');
+
+      btnConfirm.addEventListener('click', async () => {
+        btnConfirm.disabled = true;
+        btnConfirm.textContent = '保存中...';
+        statusEl.textContent = '本保存処理中...';
+
+        try {
+          const res = await fetch('confirm_match.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ temp_id: item.temp_id })
+          });
+          const result = await res.json();
+          if (result.ok) {
+            statusEl.textContent = '依頼ID ' + item.request_id + ' × ' + (item.provider_name || ('ID:' + item.provider_id)) + ' を本保存しました。';
+            card.remove();
+            updateSummaryAfterRemoval();
+          } else {
+            alert('本保存エラー: ' + (result.error || '不明なエラー'));
+            btnConfirm.disabled = false;
+            btnConfirm.textContent = 'この組み合わせを本保存する';
+          }
+        } catch (e) {
+          alert('通信エラー: ' + e);
+          btnConfirm.disabled = false;
+          btnConfirm.textContent = 'この組み合わせを本保存する';
+        }
+      });
+
+      btnDelete.addEventListener('click', async () => {
+        if (!confirm('この仮候補を一覧から削除しますか？\n（本保存はされません）')) return;
+
+        btnDelete.disabled = true;
+        btnDelete.textContent = '削除中...';
+
+        try {
+          // 単純に temporary_matches から削除するAPIを作ってもよいが、
+          // 今回は confirm_match.php と分けておきます。
+          const res = await fetch('delete_temporary_candidate.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ temp_id: item.temp_id })
+          });
+          const result = await res.json();
+          if (result.ok) {
+            card.remove();
+            updateSummaryAfterRemoval();
+          } else {
+            alert('削除エラー: ' + (result.error || '不明なエラー'));
+            btnDelete.disabled = false;
+            btnDelete.textContent = '仮候補から削除';
+          }
+        } catch (e) {
+          alert('通信エラー: ' + e);
+          btnDelete.disabled = false;
+          btnDelete.textContent = '仮候補から削除';
+        }
+      });
+
+      cardListEl.appendChild(card);
+    });
+  }
+
+  function updateSummaryAfterRemoval() {
+    const count = cardListEl.children.length;
+    if (count === 0) {
+      summaryEl.textContent = '現在、仮候補は登録されていません。';
+    } else {
+      summaryEl.textContent = '仮候補 ' + count + ' 件';
+    }
+  }
+
+  async function loadList() {
+    summaryEl.textContent = '読み込み中です...';
+    statusEl.textContent = '';
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+
+    try {
+      const res = await fetch('list_temporary_matches.php');
+      const text = await res.text();
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        errorEl.style.display = 'block';
+        errorEl.textContent = 'JSONパースエラー:\n' + e + '\n\nレスポンス:\n' + text;
+        summaryEl.textContent = 'エラーが発生しました。';
+        return;
+      }
+
+      if (data.error) {
+        errorEl.style.display = 'block';
+        errorEl.textContent = data.error;
+        summaryEl.textContent = 'エラーが発生しました。';
+        return;
+      }
+
+      render(data);
+
+    } catch (e) {
+      errorEl.style.display = 'block';
+      errorEl.textContent = '通信エラー: ' + e;
+      summaryEl.textContent = 'エラーが発生しました。';
+    }
+  }
+
+  loadList();
+})();
+</script>
+</body>
+</html>
