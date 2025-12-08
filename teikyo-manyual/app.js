@@ -58,12 +58,10 @@ const pages = {
 <h2>提供会員情報の見方</h2>
 <p>1.提供会員トップページ</p>
 <img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
-<p>2.利用会員の会員名・会員番号・子ども氏名・年齢を入力してください</p>
-<img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
-<p>3.援助した日時・人数・実施場所・援助時間から算出した報酬を入力してください。</p>
-<img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
-<p>4.援助中に得た気づき(ヒヤリハットなど)を備考欄に記入してください。</p>
-<img src="image/mypage/teikyo-info/teikyo-top.png" class="manual-image" />
+<p>2.援助依頼を送る</p>
+<img src="image/mypage/teikyo-info/teikyo-top1.png" class="manual-image" />
+<p>3.援助した日時・人数・実施場所・援助時間を入力してください</p>
+<img src="image/mypage/teikyo-info/teikyo-request.png" class="manual-image" />
 </div>
 `,
 
@@ -93,13 +91,13 @@ const pages = {
 <div class='manual-box'>
 <h2>活動報告書の取得方法</h2>
 <p>1.提供会員トップページから活動報告書を選択</p>
-<img src="image/list/report/houkoku1.png" class="manual-image" />
+<img src="image/list/report/houkoku1.png" class="manual-image0" />
 <p>2.利用会員の会員名・会員番号・子ども氏名・年齢を入力してください</p>
-<img src="image/list/report/houkoku2.png" class="manual-image" />
+<img src="image/list/report/houkoku2.png" class="manual-image0" />
 <p>3.援助した日時・人数・実施場所・援助時間から算出した報酬を入力してください。</p>
-<img src="image/list/report/houkoku3.png" class="manual-image" />
+<img src="image/list/report/houkoku3.png" class="manual-image0" />
 <p>4.援助中に得た気づき(ヒヤリハットなど)を備考欄に記入してください。</p>
-<img src="image/list/report/houkoku4.png" class="manual-image" />
+<img src="image/list/report/houkoku4.png" class="manual-image0" />
 </div>
 `,
 
