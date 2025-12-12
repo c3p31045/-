@@ -1,0 +1,777 @@
+/*ヘッダー*/
+
+header {
+    background: #166043;
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    margin: 0;
+     font-size: 18px;
+}
+
+.title {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.menu-btn {
+    font-size: 30px;
+    margin-right: 15px;
+    color: white;
+}
+
+
+/*活動報告書*/
+.hou1{width:100%;border-collapse:collapse;font-size:13px;background:#f1f1f1;}
+.hou3{border:1px solid var(--border);padding:6px;}
+.hou3{background:#ffffff;}
+.status-draft{color:#888;}
+.status-submitted{color:#0b6a57;font-weight:bold;}
+.actions{margin-bottom:10px;}
+.actions a{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid var(--brand);color:var(--brand);text-decoration:none;font-size:13px;}
+.actions a:hover{background:var(--brand);color:#fff;}
+
+/*職員側提供会員データ*/
+.container{max-width:1080px;margin:24px auto;padding:0 16px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.card-header{padding:12px;border-bottom:1px solid var(--border);font-weight:bold;}
+.row{display:grid;grid-template-columns:140px 1fr;margin-bottom:6px;}
+.input-like{border:1px solid var(--border);padding:6px;border-radius:6px;}
+.inline-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.avail-table{width:100%;border-collapse:collapse;}
+.avail-table th,.avail-table td{border:1px solid var(--border);padding:4px;text-align:center;}
+.no-data{color:#777;font-size:14px;}
+
+/*職員側提供会員データ*/
+container{max-width:1080px;margin:24px auto;padding:0 16px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:18px;}
+.card-header{padding:12px;border-bottom:1px solid var(--border);font-weight:bold;}
+.tab-header{display:flex;border-bottom:1px solid var(--border);}
+.tab-btn{flex:1;padding:8px;text-align:center;cursor:pointer;background:#eee;border:none;}
+.tab-btn.active{background:#fff;border-bottom:3px solid var(--brand);}
+.tab-body{padding:16px;}
+.row{display:grid;grid-template-columns:140px 1fr;margin-bottom:6px;}
+.input-like{border:1px solid var(--border);padding:6px;border-radius:6px;}
+.child-block,.emc-block{border:1px solid var(--border);padding:8px;border-radius:10px;margin-bottom:8px;}
+.hidden{display:none;}
+.no-data{color:#777;}
+
+/*職員側提供会員データ*/
+
+
+/*マッチング画面*/
+    .container1{max-width:1100px;margin:24px auto;padding:0 16px;}
+    header h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .oi{
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px 32px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+    }
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* 援助依頼カード一覧 */
+    .request-list-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      padding: 12px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .request-list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .request-list-header h2 {
+      margin: 0;
+      font-size: 15px;
+    }
+    .request-list-header span {
+      font-size: 12px;
+      color: #666;
+    }
+    .request-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 540px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .request-card {
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 8px 10px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.15s, border-color 0.15s;
+    }
+    .request-card:hover {
+      background-color: #f9fbff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border-color: #cbd5f5;
+    }
+    .request-card.selected {
+      border-color: #309D62;
+      box-shadow: 0 0 0 2px rgba(48,157,98,0.3);
+      background-color: #f3faf6;
+    }
+    .request-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      gap: 8px;
+    }
+    .request-id {
+      font-size: 12px;
+      font-weight: 600;
+      color: #166043;
+    }
+    .request-meta {
+      font-size: 11px;
+      color: #666;
+    }
+    .request-text {
+      font-size: 13px;
+      line-height: 1.5;
+      max-height: 3.2em; /* 2行くらい */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 右側：詳細＋マッチング結果 */
+    .detail-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .selected-request-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .selected-request-card h2 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+    .selected-meta {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .selected-text {
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre-line;
+      margin-bottom: 6px;
+    }
+    .match-action {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .match-action button {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background-color: #166043;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .match-action button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .status {
+      font-size: 12px;
+      color: #555;
+    }
+
+    .error {
+      font-size: 13px;
+      color: #b91c1c;
+      white-space: pre-wrap;
+    }
+
+    .table-wrapper2 {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .kako{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+   .math{
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .tugi {
+      background-color: #f6f6f7;
+    }
+    tbody tr:hover {
+      background-color: #f9fbff;
+    }
+
+    .score-bar {
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #e2e8f0;
+      overflow: hidden;
+      margin-top: 3px;
+    }
+    .score-bar-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #309D62;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: #fff;
+      margin-left: 4px;
+    }
+    .pill-high { background-color: #16a34a; }
+    .pill-mid  { background-color: #f59e0b; }
+    .pill-low  { background-color: #9ca3af; }
+
+    .save-btn {
+      margin-top: 4px;
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 999px;
+      border: 1px solid #166043;
+      background-color: #fff;
+      color: #166043;
+      cursor: pointer;
+    }
+    .save-btn:hover {
+      background-color: #e6f4ec;
+    }
+
+
+
+
+/*援助依頼フォーム*/
+        .request-page{
+      max-width:900px;
+      margin:32px auto 72px;
+      padding:0 16px;
+    }
+
+    .request-card2{
+      background:#fff;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow:0 2px 10px rgba(13,34,45,.05);
+      padding:20px 20px 24px;
+    }
+
+    .request-title{
+      margin:0 0 12px;
+      font-size:20px;
+      font-weight:700;
+      border-bottom:1px solid var(--border);
+      padding-bottom:8px;
+    }
+
+    .request-subtitle{
+      margin:18px 0 8px;
+      font-size:16px;
+      border-left:4px solid var(--brand);
+      padding-left:8px;
+    }
+
+    .report-section{
+      margin-top:4px;
+      padding-top:4px;
+    }
+
+    .report-row{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:8px 16px;
+      align-items:center;
+      margin:10px 0;
+    }
+
+    .report-field{
+      font-weight:600;
+      color:#203139;
+      display:block;
+    }
+
+    .report-field.full{
+      grid-column:1 / -1;
+    }
+
+    .report-row input[type="text"],
+    .report-row input[type="email"],
+    .report-row input[type="tel"],
+    .report-row input[type="date"],
+    .report-row input[type="time"],
+    .report-row input[type="number"],
+    .report-row textarea{
+      width:100%;
+      padding:9px 11px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      transition:border-color .15s, box-shadow .15s;
+    }
+
+    .report-row textarea{
+      resize:vertical;
+      min-height:80px;
+    }
+
+    .report-row input:focus,
+    .report-row textarea:focus{
+      border-color:#99c3ff;
+      box-shadow:0 0 0 3px rgba(153,195,255,.35);
+    }
+
+    .hint{
+      font-size:12px;
+      color:var(--muted);
+      grid-column:2 / -1;
+      margin:0;
+    }
+
+    .request-actions{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:24px;
+      padding-top:16px;
+      border-top:1px solid var(--border);
+    }
+
+    .btn-submit{
+      appearance:none;
+      border:none;
+      border-radius:999px;
+      padding:10px 26px;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      cursor:pointer;
+      background:var(--brand);
+      color:#fff;
+      box-shadow:0 4px 0 var(--brand-dark);
+    }
+    .btn-submit:active{
+      transform:translateY(2px);
+      box-shadow:0 2px 0 var(--brand-dark);
+    }
+
+    .btn-back-link{
+      text-decoration:none;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .care-options label{
+      font-weight:500;
+      display:block;
+      margin-bottom:4px;
+    }
+
+    @media (max-width:720px){
+      .request-card{padding:16px 14px 20px;}
+      .report-row{grid-template-columns:1fr;}
+      .hint{grid-column:1 / -1;}
+    }
+
+    header{
+      background:var(--brand);
+      color:#fff;
+      box-shadow:0 1px 0 rgba(0,0,0,.15);
+    }
+    header .title{
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.04em;
+      padding: 5px;
+    
+    }
+   *{box-sizing:border-box;}
+
+
+/*利用会員データ*/
+
+.container3{
+  max-width:960px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  overflow:hidden;
+}
+.card-header{
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,#ffffff,#f8fbfd);
+}
+.card-header h2{margin:0;font-size:16px;}
+.tab-header{
+  display:flex;
+  border-bottom:1px solid var(--border);
+}
+.tab-btn{
+  flex:1;
+  padding:10px 0;
+  text-align:center;
+  cursor:pointer;
+  font-weight:600;
+  border:none;
+  background:#f3f5f7;
+}
+.tab-btn.active{
+  background:#fff;
+  border-bottom:3px solid var(--brand);
+  color:var(--brand-dark);
+}
+.tab-body{
+  padding:16px 20px 24px;
+}
+.row{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:6px 12px;
+  margin-bottom:8px;
+  align-items:center;
+}
+.row label{
+  font-weight:600;
+}
+.input-like{
+  width:100%;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:#fdfdfd;
+}
+.textarea-like{
+  width:100%;
+  min-height:80px;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:#fdfdfd;
+}
+.child-block{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:12px;
+}
+.child-title{
+  font-weight:700;
+  margin-bottom:8px;
+  color:var(--brand-dark);
+}
+.note-center{
+  text-align:center;
+  margin-top:8px;
+  color:#666;
+  font-size:13px;
+}
+.hidden{display:none;}
+@media (max-width:640px){
+  .row{grid-template-columns:1fr;}
+}
+.back-link{
+  display:inline-block;
+  margin-top:12px;
+  font-size:14px;
+}
+
+
+
+/*提供会員データ*/
+.container5{
+  max-width:960px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  overflow:hidden;
+}
+
+.card-body{
+  padding:16px 20px 24px;
+}
+.row{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:6px 12px;
+  margin-bottom:8px;
+  align-items:center;
+}
+.row label{
+  font-weight:600;
+}
+.inline-3{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:6px 8px;
+}
+.input-like{
+  width:100%;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:#fdfdfd;
+}
+.textarea-like{
+  width:100%;
+  min-height:80px;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:#fdfdfd;
+}
+.avail-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.avail-table th,
+.avail-table td{
+  border:1px solid var(--border);
+  padding:6px 4px;
+  text-align:center;
+}
+.back-link{
+  display:inline-block;
+  margin-top:12px;
+  font-size:14px;
+}
+@media (max-width:640px){
+  .row{grid-template-columns:1fr;}
+  .inline-3{grid-template-columns:1fr;}
+}
+
+
+ /* provider_menu 用のレイアウトを上書きして中央寄せにする */
+    main.staff-menu {
+        padding: 40px 0;
+    }
+    main.staff-menu .staff-menu-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px 40px;
+        display: block; /* 左カラムのレイアウトを無効化 */
+    }
+
+    .page-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+      
+    .page-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+   
+    .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            background: #309D62;
+            color: #fff;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .back-btn:hover {
+            opacity: 0.85;
+        }
+
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .card-section-title {
+            margin-top: 14px;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-left: 4px solid #309D62;
+            padding-left: 8px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+        .info-label {
+            width: 6em;
+            font-weight: 600;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+            color: #222;
+        }
+
+        .child-box {
+            border-radius: 8px;
+            border: 1px solid #e0e4ed;
+            padding: 8px 10px;
+            margin-top: 8px;
+            background: #f9fbff;
+        }
+
+        .child-box + .child-box {
+            margin-top: 6px;
+        }
+
+        .empty-message {
+            margin-top: 20px;
+        }
+
+
+
+
+/*確定済みマッチ一覧*/
+
+.kakute{
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 0 16px 32px;
+    }
+
+    .summary {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+        .status {
+      font-size: 12px;
+      color: #555;
+      margin-top: 8px;
+    }
+    .error {
+      font-size: 13px;
+      color: #b91c1c;
+      white-space: pre-wrap;
+      margin-top: 8px;
+      display:none;
+    }
+    .card-footer {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+.score-line {
+      font-size: 12px;
+      color: #374151;
+    }
+    .card-request {
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+    .card-provider {
+      font-size: 13px;
+      color: #111827;
+    }
+    .card-meta {
+      font-size: 11px;
+      color: #666;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .card-id {
+      font-size: 11px;
+      font-weight: 600;
+      color: #166043;
+    }
+
+    .card-header1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .card2 {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 10px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }

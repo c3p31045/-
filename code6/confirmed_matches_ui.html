@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"> 
+  <title>確定済みマッチ一覧 | マッチング管理</title>
+  <link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+<header class="appbar">
+  <h1>確定済みマッチ一覧</h1>
+</header>
+
+<main class="kakute">
+  <div class="summary" id="summary-text">読み込み中です...</div>
+  <div id="card-list" class="card-list">
+    <!-- JSでカードを追加 -->
+  </div>
+  <div id="status-text" class="status"></div>
+  <div id="error-text" class="error"></div>
+</main>
+
+<script>
+(function() {
+  const cardListEl = document.getElementById('card-list');
+  const summaryEl  = document.getElementById('summary-text');
+  const statusEl   = document.getElementById('status-text');
+  const errorEl    = document.getElementById('error-text');
+
+  function badge(prob) {
+    if (prob === null || prob === undefined || isNaN(prob)) {
+      return '';
+    }
+    if (prob >= 0.8) return '<span class="pill pill-high">高</span>';
+    if (prob >= 0.4) return '<span class="pill pill-mid">中</span>';
+    return '<span class="pill pill-low">低</span>';
+  }
+
+  function render(list) {
+    cardListEl.innerHTML = '';
+
+    if (!list || list.length === 0) {
+      summaryEl.textContent = '現在、確定済みのマッチングはありません。';
+      statusEl.textContent  = '';
+      return;
+    }
+
+    summaryEl.textContent = '確定済みマッチ ' + list.length + ' 件';
+    statusEl.textContent  = '最新の確定状況を表示しています。';
+
+    list.forEach(item => {
+      const prob = (typeof item.score === 'number')
+        ? item.score
+        : (item.score ? Number(item.score) : NaN);
+      const pct  = (isNaN(prob) ? null : (prob * 100).toFixed(1));
+
+      const timeLabel =
+        (item.request_date || '') +
+        (item.start_time ? ' ' + item.start_time : '') +
+        (item.end_time ? '〜' + item.end_time : '');
+
+      const card = document.createElement('div');
+      card.className = 'card2';
+      card.dataset.confirmedId = item.confirmed_id;
+
+      card.innerHTML = `
+        <div class="card-header1">
+          <div class="card-id">
+            依頼ID: ${item.request_id} / 確定ID: ${item.confirmed_id}
+          </div>
+          <div class="card-meta">
+            ${timeLabel || ''}<br>
+            ${item.requester_name ? '依頼者: ' + item.requester_name : ''}
+          </div>
+        </div>
+
+        <div class="card-request">
+          ${item.request_text || '(依頼内容なし)'}
+        </div>
+
+        <div class="card-provider">
+          提供会員: <strong>${item.provider_name || ('ID:' + item.provider_id)}</strong>
+        </div>
+
+        <div class="score-line">
+        AI候補: ${
+        prob === null ? '（スコア未登録）'
+                  : (prob.toFixed(3) + ' ' + badge(prob))
+        }
+
+          <div class="score-bar">
+            <div class="score-bar-inner" style="width:${pct === null ? 0 : pct}%;"></div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span>確定日時: ${item.created_at ? item.created_at : '不明'}</span>
+          <span>依頼日: ${item.request_date || ''}</span>
+        </div>
+      `;
+
+      cardListEl.appendChild(card);
+    });
+  }
+
+  async function loadList() {
+    summaryEl.textContent = '読み込み中です...';
+    statusEl.textContent  = '';
+    errorEl.style.display = 'none';
+    errorEl.textContent   = '';
+
+    try {
+      const res  = await fetch('list_confirmed_matches.php');
+      const text = await res.text();
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        errorEl.style.display = 'block';
+        errorEl.textContent = 'JSONパースエラー:\n' + e + '\n\nレスポンス:\n' + text;
+        summaryEl.textContent = 'エラーが発生しました。';
+        return;
+      }
+
+      if (data.error) {
+        errorEl.style.display = 'block';
+        errorEl.textContent   = data.error;
+        summaryEl.textContent = 'エラーが発生しました。';
+        return;
+      }
+
+      render(data);
+
+    } catch (e) {
+      errorEl.style.display = 'block';
+      errorEl.textContent   = '通信エラー: ' + e;
+      summaryEl.textContent = 'エラーが発生しました。';
+    }
+  }
+
+  loadList();
+})();
+</script>
+</body>
+</html>
