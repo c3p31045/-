@@ -32,12 +32,6 @@ const pages = {
 `,
 
 
-'lost': `
-<div class='manual-box'>
-<h2>パスワードを忘れた時</h2>
-<p>パスワード変更</p>
-</div>
-`,
 
 //2項目目
 'calender': `
@@ -82,23 +76,7 @@ const pages = {
 </div>
 `,
 
-'menber': `
-<div class='manual-box'>
-<h2>会員情報の変更</h2>
-<p>1.提供者会員・利用会員にログインしてください</p>
-<p>2.提供者会員・利用会員トップページからマイページを選択してください</p>
-<img src="image/mypage/mypage-change.png" class="manual-image" />
-<p>3.変更したい内容を変更してください</p>
-<img src="image/mypage/mypage-change.png" class="manual-image" />
-</div>
-`,
 
-'decision': `
-<div class='manual-box'>
-<h2>確定日の確認</h2>
-<p>ここに評価ポイントを記載します。</p>
-</div>
-`,
 
 //3項目目
 'report': `
@@ -118,7 +96,8 @@ const pages = {
 'risk-report': `
 <div class='manual-box'>
 <h2>ヒヤリハット報告書提出方法</h2>
-<p>ここに評価ポイントを記載します。</p>
+<p>活動報告書のメモ欄に、
+<br>その時の状況・事象の程度・発生場所や時間・具体的な内容・未然に防ぐぐための改善点・保護者の対策などを記入してください</p>
 </div>
 `,
 
