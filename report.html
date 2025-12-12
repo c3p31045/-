@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>援助活動報告（Web申請フォーム）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="login.html" class="title">流山市ファミリーサポートセンター</a>
+</header>
+
+<main class="report-page">
+
+  <!-- ★必ず form で囲む／action は report_submit.php -->
+  <form class="report-card" action="report_submit.php" method="post">
+
+    <h1 class="report-title">援助活動報告（Web申請フォーム）</h1>
+
+    <section class="report-section">
+      <div class="report-row">
+        <label class="report-field">
+          会員名
+          <input type="text" name="member_name" required>
+        </label>
+        <label class="report-field">
+          会員番号
+          <input type="text" name="member_id" required>
+        </label>
+        <label class="report-field">
+          子ども氏名
+          <input type="text" name="child_name">
+        </label>
+        <label class="report-field">
+          年齢
+          <input type="number" name="child_age" min="0" step="1">
+        </label>
+      </div>
+    </section>
+
+    <section class="report-section">
+      <h2 class="report-subtitle">援助記録</h2>
+
+      <div class="report-row">
+        <label class="report-field">
+          日付
+          <input type="date" name="work_date" required>
+        </label>
+        <label class="report-field">
+          開始
+          <input type="time" name="start_time" required>
+        </label>
+        <label class="report-field">
+          終了
+          <input type="time" name="end_time" required>
+        </label>
+        <label class="report-field">
+          人数
+          <input type="number" name="person_count" min="1" step="1" value="1">
+        </label>
+      </div>
+
+      <div class="report-row">
+        <label class="report-field">
+          交通費(円)
+          <input type="number" name="transport_fee" min="0" step="1" value="0">
+        </label>
+        <label class="report-field">
+          食事代(円)
+          <input type="number" name="meal_fee" min="0" step="1" value="0">
+        </label>
+        <label class="report-field">
+          報酬(円)
+          <input type="number" name="reward_fee" min="0" step="1" value="0">
+        </label>
+      </div>
+
+      <div class="report-row">
+        <label class="report-field full">
+          実施場所
+          <input type="text" name="place">
+        </label>
+      </div>
+    </section>
+
+    <section class="report-section">
+      <label class="report-field full">
+        備考（メモ用）
+        <textarea name="note" rows="4"></textarea>
+      </label>
+    </section>
+
+    <section class="report-section report-summary-row">
+      <label class="report-summary">
+        合計援助時間（目安）
+        <input type="number" name="total_hours" step="0.25" min="0">
+      </label>
+      <label class="report-summary">
+        合計報酬額
+        <input type="number" name="total_reward" step="1" min="0">
+      </label>
+    </section>
+
+    <div class="report-actions">
+      <!-- ★必ず type="submit" -->
+      <button type="submit" class="btn-submit">送信</button>
+    </div>
+
+  </form>
+</main>
+
+<script>
+  // ヘッダー色の処理だけならOK（送信を邪魔しない）
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('headerColor');
+    if (savedColor) {
+      document.querySelector('header').style.background = savedColor;
+    }
+  });
+</script>
+
+</body>
+</html>

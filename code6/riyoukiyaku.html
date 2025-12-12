@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流山市ファミリーサポートセンター新規会員登録</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+ <a href="login.html" class="title">流山市ファミリーサポートセンター</a>
+</header>
+
+<main>
+  <div class="content-card">
+
+    <h1>流山市ファミリーサポートセンター新規会員登録</h1>
+
+    <p>個人情報取扱同意書（AIマッチング対応・個人運営版）</p>
+    <p>個人情報の取り扱いについて</p>
+    <p>
+      「マッチングサイト」（以下「当サイト」といいます）では、<br>
+      会員登録およびAIを活用したマッチングサービスの提供にあたり、<br>
+      利用者の氏名・年齢・住所・連絡先などの個人情報を取得・利用いたします。<br>
+      以下の内容をご確認のうえ、同意いただける方のみご登録ください。
+    </p>
+
+    <h2>[1. 利用目的]</h2>
+    <ul>
+      <li>会員登録および本人確認のため</li>
+      <li>AIを活用したマッチングサービス提供のため（条件照合・適合度算出など）</li>
+      <li>マッチング成立後の相互連絡を円滑に行うため</li>
+      <li>お問い合わせ対応およびサービス運営に関する連絡のため</li>
+      <li>サービス品質向上および機能改善のため</li>
+    </ul>
+
+    <h2>[2. AIの利用について]</h2>
+    <ul>
+      <li>当サイトでは、AI（人工知能）を用いて、会員のプロフィール情報・入力内容・マッチング履歴などを分析し、相性やおすすめ候補者を自動的に算出します。</li>
+      <li>AIによる分析は、サービス提供のためのみに使用され、個人が特定される形で第三者に提供されることはありません。</li>
+      <li>AIが生成する提案結果は、統計的推定に基づくものであり、必ずしも正確性を保証するものではありません。</li>
+    </ul>
+
+    <h2>[3. 会員間で共有される情報]</h2>
+    <ul>
+      <li>マッチングが成立した会員同士に限り、年齢など必要最低限の情報が相手に公開されます。</li>
+      <li>マッチング未成立の他会員には、個人情報は一切公開されません。</li>
+    </ul>
+
+    <h2>[4. 個人情報の管理]</h2>
+    <ul>
+      <li>取得した個人情報は運営者が責任をもって適切に管理し、不正アクセス・漏えい・改ざんなどを防止します。</li>
+      <li>利用目的が達成された個人情報は、速やかに削除いたします。</li>
+    </ul>
+
+    <h2>[5. 第三者提供]</h2>
+    <ul>
+      <li>法令に基づく場合を除き、本人の同意なく第三者に提供することはありません。</li>
+      <li>ただし、マッチング成立後に相手会員との連絡に必要な範囲で情報を共有する場合があります。</li>
+    </ul>
+
+    <h2>[6. 個人情報の開示・訂正・削除等について]</h2>
+    <p>
+      ご本人からの個人情報に関する開示・訂正・削除・利用停止のご希望には、合理的な範囲で速やかに対応いたします。<br>
+      ご希望の際は、下記の窓口までご連絡ください。<br>
+      運営者名：運営責任者（個人）<br>
+      E-mail：info@example.com
+    </p>
+
+    <p>
+      上記の内容をご確認のうえ、「同意する」にチェックを入れてください。
+    </p>
+
+    <!-- 同意チェック -->
+    <div class="consent-area">
+      <label class="checkbox-label">
+        <input type="checkbox" id="agreeAll">
+        すべて同意する
+      </label>
+
+      <!-- 会員登録へ進むボタン（リンク＋ボタン風デザイン） -->
+      <div class="submit-wrapper">
+        <a href="register_form.php" class="submit-btn disabled" id="nextBtn">
+          会員登録へ進む
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const agree = document.getElementById('agreeAll');
+    const btn   = document.getElementById('nextBtn');
+
+    agree.addEventListener('change', function () {
+      if (this.checked) {
+        btn.classList.remove('disabled');   // 押せる
+      } else {
+        btn.classList.add('disabled');      // 押せない
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('headerColor');
+  if (savedColor) {
+      document.querySelector('header').style.background = savedColor;
+  }
+});
+</script>

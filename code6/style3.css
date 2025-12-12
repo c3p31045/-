@@ -1,0 +1,42 @@
+    :root { --brand:#166043; --brand-dark:#085343; --ink:#0b1b1f; --muted:#5c6b73; --border:#d8e1e8; --bg:#eaf3f9; --danger:#c62828; --accent:#2f855a; --chip:#edf7f2; }
+    *{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:"Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+    .appbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--brand);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.1)}
+    .appbar .menu{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.25);cursor:pointer}
+    .appbar .menu span{width:18px;height:2px;background:#fff;display:block;position:relative}
+    .appbar .menu span::before,.appbar .menu span::after{content:"";position:absolute;inset:0}
+    .appbar .menu span::before{transform:translateY(-6px);background:currentColor;height:2px}
+    .appbar .menu span::after{transform:translateY(6px);background:currentColor;height:2px}
+    .appbar h1{font-size:clamp(16px,2.2vw,20px);margin:0;letter-spacing:.03em}
+    .container{max-width:980px;margin:24px auto 80px;padding:0 16px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(13,34,45,.05);overflow:hidden}
+    .card .card-header{background:linear-gradient(180deg,#ffffff,#f8fbfd);border-bottom:1px solid var(--border);padding:18px 20px}
+    .card .card-header h2{margin:0;font-size:18px}
+    .card .card-body{padding:20px}
+    fieldset{border:1px dashed var(--border);border-radius:12px;padding:16px;margin:18px 0}
+    legend{padding:0 8px;color:var(--brand-dark);font-weight:700}
+    .row{display:grid;grid-template-columns:180px 1fr;gap:12px 16px;align-items:center;margin:10px 0}
+    .row.start{align-items:start}
+    label{font-weight:600;color:#203139}
+    .hint{color:var(--muted);font-weight:500;font-size:12px}
+    input[type="text"],input[type="email"],input[type="tel"],input[type="password"],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:14px;outline:none;transition:box-shadow .15s,border-color .15s}
+    textarea{min-height:88px;resize:vertical}
+    input:focus,textarea:focus,select:focus{border-color:#99c3ff;box-shadow:0 0 0 3px rgba(153,195,255,.35)}
+    .choices{display:flex;flex-wrap:wrap;gap:14px 18px}
+    .choices label{font-weight:500}
+    .inline{display:inline-flex;gap:6px;align-items:center}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .addr{display:grid;grid-template-columns:100px 1fr;gap:10px}
+    .week-grid{border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .week-grid table{width:100%;border-collapse:collapse;font-size:14px}
+    .week-grid th,.week-grid td{border-bottom:1px solid var(--border);border-right:1px solid var(--border);padding:8px;text-align:center}
+    .week-grid th:last-child,.week-grid td:last-child{border-right:none}
+    .week-grid tr:last-child td{border-bottom:none}
+    .badge-note{font-size:12px;color:var(--muted);margin-top:8px}
+    .submit-bar{display:flex;justify-content:center;padding:20px;background:#f8fbfa;border-top:1px solid var(--border)}
+    .btn{appearance:none;border:none;border-radius:999px;padding:12px 28px;font-weight:800;letter-spacing:.08em;cursor:pointer;background:var(--brand);color:#fff;box-shadow:0 4px 0 var(--brand-dark)}
+    .btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--brand-dark)}
+    .login-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .req{color:var(--danger);font-weight:700;margin-left:.2em}
+    @media (max-width:720px){.row{grid-template-columns:1fr}.addr{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.login-grid{grid-template-columns:1fr}}
